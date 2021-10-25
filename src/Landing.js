@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import GreenCabLogo from './imgs/GreenCabLogo.png'
 
@@ -30,18 +30,31 @@ height: 50px;
 display flex;
 align-items: center;
 justify-content: center;
-margin-top: 100px;
 background: linear-gradient(180deg, #8CC96D 0%, #478E23 100%);
 border: 1px solid #C4C4C4;
 box-sizing: border-box;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 35px;
+color: black;
+
+position: absolute;
+bottom: 60px;
+left: 50%;
+transform: translate(-50%, 0);
+
+&:hover {
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+&:active {
+    box-shadow: inset 0px 7px 7px rgba(0, 0, 0, 0.5);
+}
 `
 
 export const SectionDiv = styled.div`
 width: 90%;
-height: 25%;
-margin: 20px;
+height: 30%;
 display flex;
 align-items: center;
 justify-content: center;
@@ -51,6 +64,12 @@ flex-direction: column;
 
 export const SubHeading = styled.h3`
 margin-bottom: 10px;
+`
+
+export const StyledLink = styled(Link)`
+text-decoration: none;
+
+// transition: color 0.4s;
 `
 
 
@@ -66,7 +85,7 @@ function Landing() {
                     <p>Just nu kan du boka en av våra taxibilar och få 10% rabatt på din resa.</p>
                 </SectionDiv>
                 <SectionDiv>
-                    <ContinueButton>Sök resa</ContinueButton>
+                    <StyledLink to="/search"><ContinueButton>Sök resa</ContinueButton></StyledLink>
                 </SectionDiv>
             </LandingInfo>
         </Background>
